@@ -12,7 +12,9 @@ export default StyleSheet.create({
         justifyContent: "center",
         width: "100%",
         height: "100%",
-        padding: 24
+        paddingHorizontal: 32,
+        paddingTop: 24,
+        paddingBottom: 32
     },
     imgLogin: {
         width: 150,
@@ -26,9 +28,10 @@ export default StyleSheet.create({
     absoluteDriverInfo: {
         position: "absolute",
         bottom: 0,
-        marginBottom: 12,
-        width: 200,
+        marginBottom: 16,
+        width: 150,
         height: 20,
-        resizeMode: "contain"
+        resizeMode: "contain",
+        alignSelf: "center"
     }
 });

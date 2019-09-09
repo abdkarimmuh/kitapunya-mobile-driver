@@ -60,6 +60,7 @@ export default class LoginScreen extends Component {
                         this.onPressLogin
                     )}
                 </Container>
+                <Image source={Images.logo.absoluteBottom} style={Styles.absoluteDriverInfo}/>
             </ImageBackground>
         );
     }

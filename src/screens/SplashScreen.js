@@ -27,7 +27,7 @@ export default class SplashScreen extends Component {
                     source={Logo.logo.iconSplash}
                     style={{ width: 120, height: 160, resizeMode: "contain" }}
                 />
-                <Image source={Logo.other.absoluteBottom} style={Styles.absoluteDriverInfo}/>
+                <Image source={Logo.logo.absoluteBottom} style={Styles.absoluteDriverInfo}/>
             </LinearGradient>
         );
     }
