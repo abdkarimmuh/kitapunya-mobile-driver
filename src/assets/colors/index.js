@@ -1,16 +1,16 @@
 export default {
-    darkPrimaryColor: "#EA3005",
-    lightPrimaryColor: "#FDA08B",
-    primaryColor: "#FB6340",
-    textColor: "#FFFFFF",
-    accentColor: "#FBB040",
-    primaryTextColor: "#212121",
-    secondaryTextColor: "#757575",
-    white: "#FFF",
-    black: "#000",
-    white25: "#FFFFFF40",
-    grey: "#999",
+    primaryColor: "#F39C12",
+    textColor: "#4A4A4A",
+    dividerColor: "#BDBDBD",
     backgroudDefault: "#F4F4F4",
-    black4A: "#4A4A4A",
+
+    status0: "#999999",
+    status1: "#F39C12",
+    status2: "#17A2B8",
+    status3: "#28A745",
+
+    white: "#FFFFFF",
+    black: "#000000",
+    grey: "#999999",
     transparent: "#FFFFFF00"
 };

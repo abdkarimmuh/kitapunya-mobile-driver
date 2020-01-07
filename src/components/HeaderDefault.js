@@ -6,8 +6,8 @@ export default class HeaderDefault extends Component {
     render() {
         return (
             <Image
-                source={Logo.logo.iconHeaderDriver}
-                style={{ width: 200, height: 50, resizeMode: "contain", marginLeft: 16 }}
+                source={Logo.logo.banner}
+                style={{ width: 120, height: 40, resizeMode: "contain", marginLeft: 16 }}
             />
         );
     }

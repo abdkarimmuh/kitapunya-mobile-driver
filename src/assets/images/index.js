@@ -1,18 +1,25 @@
 export default {
     logo: {
-        iconSplash: require("./logo/logo_white.png"),
-        iconHeader: require("./logo/logo_banner.png"),
-        iconHeaderDriver: require("./logo/logo_banner_driver.png"),
-        absoluteBottom: require("./logo/absolute_bottom.png"),
+        logo: require("./logo/logo.png"),
+        logoWhite: require("./logo/logo_white.png"),
+        banner: require("./logo/banner.png"),
+        bannerWhite: require("./logo/banner_white.png"),
+        textLogo: require("./logo/kitapunya_for_driver.png"),
+        textLogoWhite: require("./logo/kitapunya_for_driver_white.png"),
     },
     avatar: {
-        avatarDefault: require("./avatar/avatar_default.png")
+        avatarPrimary: require("./avatar/avatar_primary.png"),
+        avatarWhite: require("./avatar/avatar_white.png"),
+        plane: require("./avatar/plane.png"),
     },
     background: {
-        backgroundLogin: require("./background/background.png")
+        backgroundLogin: require("./background/background.png"),
     },
     icon: {
-        maps: require("./icon/maps.png"),
-        truck: require("./icon/truck.png"),
-    }
+        home: require("./icon/home.png"),
+        home_active: require("./icon/home_active.png"),
+        archive: require("./icon/archive.png"),
+        archive_active: require("./icon/archive_active.png"),
+        mapWhite: require("./icon/map_white.png"),
+    },
 };

@@ -1,44 +1,87 @@
 import React from "react";
-import { createStackNavigator } from "react-navigation-stack";
-import { HeaderDetail, HeaderDefault } from "@app/components";
-import { HomeScreen, DetailScreen, ProfileScreen } from "@app/screens";
+import { Image } from "react-native";
+import { createMaterialBottomTabNavigator } from "react-navigation-material-bottom-tabs";
+import { createStackNavigator } from "react-navigation";
+import { Text, HeaderDetail, HeaderDefault } from "@app/components";
+import { HeaderMenu } from "@app/containers";
 import Color from "@app/assets/colors";
+import Images from "@app/assets/images";
 
-export default createStackNavigator({
-    Main: {
+import { HomeScreen, HistoryScreen } from "@app/screens";
+
+const Label = ({ text }) => (
+    <Text style={{ fontSize: 12, color: Color.textColor, textAlign: "center", fontWeight: "bold" }}>
+        {text}
+    </Text>
+);
+
+const TabIcon = ({ name }) => ({ focused }) => {
+    if (name == "home") {
+        if (focused) {
+            icon = Images.icon.home_active
+        } else {
+            icon = Images.icon.home
+        }
+    } else if (name == "archive") {
+        if (focused) {
+            icon = Images.icon.archive_active
+        } else {
+            icon = Images.icon.archive
+        }
+    }
+    return (
+        <Image source={icon} style={{ width: 24, height: 24, resizeMode: "cover" }} />
+    )
+};
+
+const HomeStack = createStackNavigator({
+    Home: {
         screen: HomeScreen,
         navigationOptions: {
             headerTitle: <HeaderDefault />,
             headerStyle: {
-            backgroundColor: Color.primaryColor,
-            elevation: 0,
-            shadowOpacity: 0,
-            shadowOffset: {
-                height: 0
+                backgroundColor: Color.white,
+                headerTintColor: Color.textColor,
+                elevation: 0
             },
-            shadowRadius: 0
-            },
-            headerTintColor: "#fff"
+            headerRight: <HeaderMenu />,
         }
-    },
-    Detail: {
-        screen: DetailScreen,
-        navigationOptions: {
-            headerTitle: <HeaderDetail>Edit Profil</HeaderDetail>,
-            headerStyle: {
-                backgroundColor: Color.primaryColor
-            },
-            headerTintColor: "#fff"
-        }
-    },
-    Profil: {
-        screen: ProfileScreen,
-        navigationOptions: {
-            headerTitle: <HeaderDetail>Edit Profil</HeaderDetail>,
-            headerStyle: {
-                backgroundColor: Color.primaryColor
-            },
-            headerTintColor: "#fff"
-        }
-    },
+    }
 });
+
+const HistoryStack = createStackNavigator({
+    History: {
+        screen: HistoryScreen,
+        navigationOptions: {
+            headerTitle: <HeaderDetail>Riwayat</HeaderDetail>,
+            headerStyle: {
+                backgroundColor: Color.white,
+                headerTintColor: Color.textColor,
+            }
+        }
+    }
+});
+
+
+export default createMaterialBottomTabNavigator(
+    {
+        Home: {
+            screen: HomeStack,
+            navigationOptions: {
+                tabBarLabel: <Label text={"Beranda"} />,
+                tabBarIcon: TabIcon({ name: "home" })
+            }
+        },
+        History: {
+            screen: HistoryStack,
+            navigationOptions: {
+                tabBarLabel: <Label text={"Riwayat"} />,
+                tabBarIcon: TabIcon({ name: "archive" })
+            }
+        },
+    },
+    {
+        shifting: true,
+        barStyle: { backgroundColor: Color.white },
+    }
+);

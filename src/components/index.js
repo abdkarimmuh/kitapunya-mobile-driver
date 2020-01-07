@@ -5,6 +5,7 @@ import Loading from "./Loading";
 import BarStatus from "./BarStatus";
 import TextInputLoginRegister from "./TextInputLoginRegister";
 import ButtonLoginRegister from "./ButtonLoginRegister";
+import HeaderMenuDefault from "./HeaderMenuDefault";
 
 export {
     Container,
@@ -13,6 +14,7 @@ export {
     Loading,
     BarStatus,
     TextInputLoginRegister,
-    ButtonLoginRegister
+    ButtonLoginRegister,
+    HeaderMenuDefault
 };
 export * from "react-native-paper";

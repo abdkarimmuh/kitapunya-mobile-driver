@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-import { Image } from "react-native";
-import LinearGradient from "react-native-linear-gradient";
-
+import { Image, Text, View } from "react-native";
 import Logo from "@app/assets/images";
-import Color from "@app/assets/colors";
-
 import NavigationServices from "@app/services/NavigationServices";
 import Styles from "@app/assets/styles";
 
@@ -16,19 +12,12 @@ export default class SplashScreen extends Component {
     }
 
     render() {
+        console.disableYellowBox = true
         return (
-            <LinearGradient
-                start={{ x: 1.0, y: 0.0 }}
-                end={{ x: 0.0, y: 1.0 }}
-                colors={[Color.primaryColor, Color.accentColor]}
-                style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-            >
-                <Image
-                    source={Logo.logo.iconSplash}
-                    style={{ width: 120, height: 160, resizeMode: "contain" }}
-                />
-                <Image source={Logo.logo.absoluteBottom} style={Styles.absoluteDriverInfo}/>
-            </LinearGradient>
+            <View style={Styles.containerSplash}>
+                <Image source={Logo.logo.logo} style={Styles.imageSplash} />
+                <Image source={Logo.logo.textLogo} style={Styles.imageTextLogoSplash} />
+            </View>
         );
     }
 }
