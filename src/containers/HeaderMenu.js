@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { View } from "react-native";
+import { View, ToastAndroid } from "react-native";
 import { HeaderMenuDefault } from "@app/components";
 import { Api } from "@app/api";
 import NavigationServices from "@app/services/NavigationServices";
@@ -33,6 +33,19 @@ class HeaderMenu extends PureComponent<Props> {
 
     pressLogout = () => {
         this.props.resetUser();
+        Api.get()
+            .logout(this.props.token)
+            .then(res => {
+                if (res.status === 200) {
+                    NavigationServices.resetStackNavigate(["Auth"]);
+                } else if (res.status != 200) {
+                    ToastAndroid.show("Tidak tersambung", ToastAndroid.SHORT);
+                }
+            })
+            .catch(error => {
+                console.log("ERROR", error);
+                this.setState({ error: true });
+            });
     }
 
     render() {

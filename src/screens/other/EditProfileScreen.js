@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
-import { View, Image, ToastAndroid } from "react-native";
+import { View, ToastAndroid } from "react-native";
 import { Container, TextInput, Button } from "@app/components";
 import Color from "@app/assets/colors";
 import Styles from "@app/assets/styles";
@@ -32,31 +32,31 @@ class EditProfileScreen extends PureComponent<Props> {
     }
 
     componentDidMount() {
-
+        this.setState({ name: this.props.name, email: this.props.email });
     }
 
     updateUser = async () => {
-        // Api.post()
-        //     .updateProfile(this.props.token, this.state.name, this.state.email, this.state.file)
-        //     .then(res => {
-        //         console.log("res updateUser", res);
-        //         if (res.status === 200) {
-        //             this.setState({ isFetching: false });
-        //             ToastAndroid.show(res.data.message, ToastAndroid.SHORT);
-        //             NavigationServices.resetStackNavigate(["Main"]);
-        //         } else if (res.status == 401) {
-        //             this.setState({ isFetching: false });
-        //             ToastAndroid.show(res.data.error, ToastAndroid.SHORT);
-        //         } else {
-        //             this.setState({ isFetching: false });
-        //             ToastAndroid.show("Tidak dapat terhubung", ToastAndroid.SHORT);
-        //         }
-        //     })
-        //     .catch(error => {
-        //         console.log("ERROR", error);
-        //         ToastAndroid.show("Error", ToastAndroid.SHORT);
-        //         this.setState({ error: true, isFetching: false });
-        //     });
+        Api.post()
+            .updateProfile(this.props.token, this.state.name, this.state.email)
+            .then(res => {
+                console.log("res updateUser", res);
+                if (res.status === 200) {
+                    this.setState({ isFetching: false });
+                    ToastAndroid.show(res.data.message, ToastAndroid.SHORT);
+                    NavigationServices.resetStackNavigate(["Main"]);
+                } else if (res.status == 401) {
+                    this.setState({ isFetching: false });
+                    ToastAndroid.show(res.data.error, ToastAndroid.SHORT);
+                } else {
+                    this.setState({ isFetching: false });
+                    ToastAndroid.show("Tidak dapat terhubung", ToastAndroid.SHORT);
+                }
+            })
+            .catch(error => {
+                console.log("ERROR", error);
+                ToastAndroid.show("Error", ToastAndroid.SHORT);
+                this.setState({ error: true, isFetching: false });
+            });
     }
 
     renderButtonSubmit = () => (

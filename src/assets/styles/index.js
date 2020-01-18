@@ -8,6 +8,7 @@ export default StyleSheet.create({
     containerSplash: { flex: 1, justifyContent: "center", backgroundColor: Color.white },
     imageSplash: { width: "50%", height: "50%", resizeMode: "contain", alignSelf: "center" },
     imageTextLogoSplash: { position: "absolute", bottom: 0, alignSelf: "center", marginBottom: 24, width: 150, height: 20, resizeMode: "contain" },
+    loadingSplash: { marginTop: 32, alignSelf: "center" },
 
     //AuthScreen
     containerAuth: { flex: 1, flexDirection: "column", justifyContent: "center", alignContent: "center", padding: 48 },

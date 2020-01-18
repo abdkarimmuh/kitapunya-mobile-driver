@@ -37,28 +37,28 @@ class ChangePasswordScreen extends PureComponent<Props> {
             ToastAndroid.show("Password Tidak Cocok", ToastAndroid.SHORT);
             this.setState({ oldPassword: "", newPassword: "", confirmPassword: "", isFetching: false });
         } else {
-            // Api.post()
-            //     .changePassword(this.props.token, oldPassword, newPassword)
-            //     .then(res => {
-            //         console.log("Res login : ", res);
-            //         if (res.status === 200) {
-            //             this.setState({ isFetching: false });
-            //             ToastAndroid.show(res.data.message, ToastAndroid.SHORT);
-            //             if (res.data.status === "Success") {
-            //                 NavigationServices.resetStackNavigate(["Main"]);
-            //             }
-            //         } else if (res.status == 401) {
-            //             this.setState({ isFetching: false });
-            //             ToastAndroid.show(res.data.error, ToastAndroid.SHORT);
-            //         } else {
-            //             this.setState({ isFetching: false });
-            //             ToastAndroid.show("Tidak dapat terhubung", ToastAndroid.SHORT);
-            //         }
-            //     })
-            //     .catch(error => {
-            //         console.log("ERROR", error);
-            //         this.setState({ error: true });
-            //     });
+            Api.post()
+                .changePassword(this.props.token, oldPassword, newPassword)
+                .then(res => {
+                    console.log("Res login : ", res);
+                    if (res.status === 200) {
+                        this.setState({ isFetching: false });
+                        ToastAndroid.show(res.data.message, ToastAndroid.SHORT);
+                        if (res.data.status === "Success") {
+                            NavigationServices.resetStackNavigate(["Main"]);
+                        }
+                    } else if (res.status == 401) {
+                        this.setState({ isFetching: false });
+                        ToastAndroid.show(res.data.error, ToastAndroid.SHORT);
+                    } else {
+                        this.setState({ isFetching: false });
+                        ToastAndroid.show("Tidak dapat terhubung", ToastAndroid.SHORT);
+                    }
+                })
+                .catch(error => {
+                    console.log("ERROR", error);
+                    this.setState({ error: true });
+                });
         }
     }
 
